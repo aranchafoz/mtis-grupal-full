@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:CalculosWSDL="http://www.example.org/CalculosWSDL/" xmlns:MoverPanelSolarOrquestador="http://MoverPanelSolarOrquestador" xmlns:PanelSolarWSDL="http://www.example.org/PanelSolarWSDL/" xmlns:SensoresWSDL="http://www.example.org/SensoresWSDL/">
+  <process name="MoverPanelSolarOrquestador:MoverPanelSolarOrquestador">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="MoverPanelSolarOrquestador:MoverPanelSolarOrquestadorService" port="MoverPanelSolarOrquestadorPort"/>
+    </provide>
+    <invoke partnerLink="SensorTemperaturaPL">
+      <service name="SensoresWSDL:SensoresWSDL" port="SensoresWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="SensorGranizoPL">
+      <service name="SensoresWSDL:SensoresWSDL" port="SensoresWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="SensorPosSolarPL">
+      <service name="SensoresWSDL:SensoresWSDL" port="SensoresWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="SensorIntensidadPL">
+      <service name="SensoresWSDL:SensoresWSDL" port="SensoresWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="CalculoDefensasPL">
+      <service name="CalculosWSDL:CalculosWSDL" port="CalculosWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="CalculoRotacionPL">
+      <service name="CalculosWSDL:CalculosWSDL" port="CalculosWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="SensorCalculoMovilidadPL">
+      <service name="CalculosWSDL:CalculosWSDL" port="CalculosWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="InvokeDefensasPL">
+      <service name="PanelSolarWSDL:PanelSolarWSDL" port="PanelSolarWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="InvokeRotacionPL">
+      <service name="PanelSolarWSDL:PanelSolarWSDL" port="PanelSolarWSDLSOAP"/>
+    </invoke>
+    <invoke partnerLink="InvokeMoverPL">
+      <service name="PanelSolarWSDL:PanelSolarWSDL" port="PanelSolarWSDLSOAP"/>
+    </invoke>
+  </process>
+</deploy>

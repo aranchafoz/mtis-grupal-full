@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SubidaFichero" targetNamespace="http://www.example.org/SubidaFichero/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/SubidaFichero/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/SubidaFichero/">
+      <xsd:element name="SubidaFichero">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idWorker" type="xsd:string"/>
+          	<xsd:element name="content" type="xsd:string"/>
+          	<xsd:element name="extension" type="xsd:string"/>
+          	<xsd:element name="date" type="xsd:date"/>
+          	<xsd:element name="idOffice" type="xsd:string"/>
+          	<xsd:element name="idDepartment" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SubidaFicheroResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="uploaded" type="xsd:boolean"/>
+          	<xsd:element name="idFile" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarFichero">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idWorker" type="xsd:string"/>
+      			<xsd:element name="extension" type="xsd:string"/>
+      			<xsd:element name="content" type="xsd:string"/>
+      			<xsd:element name="date" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ValidarFicheroResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valid" type="xsd:boolean"/>
+      			<xsd:element name="error" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PonerFicheroEnCola">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idFile" type="xsd:string"/>
+      			<xsd:element name="extension" type="xsd:string"/>
+      			<xsd:element name="content" type="xsd:string"/>
+      			<xsd:element name="idDepartment" type="xsd:string"/>
+      			<xsd:element name="idOffice" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PonerFicheroEnColaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idOffice" type="xsd:string"/>
+      			<xsd:element name="idDepartment" type="xsd:string"/>
+      			<xsd:element name="error" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnvioFichero">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idOffice" type="xsd:string"/>
+      			<xsd:element name="idDepartment" type="xsd:string"/>
+      			<xsd:element name="idFile" type="xsd:string"/>
+
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EnvioFicheroResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="sent" type="xsd:boolean"/>
+      			<xsd:element name="error" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EnvioFicheroResponse">
+    <wsdl:part name="parameters" element="tns:EnvioFicheroResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SubidaFicheroResponse">
+    <wsdl:part name="parameters" element="tns:SubidaFicheroResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnvioFicheroRequest">
+    <wsdl:part name="parameters" element="tns:EnvioFichero">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PonerFicheroEnColaRequest">
+    <wsdl:part name="parameters" element="tns:PonerFicheroEnCola">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PonerFicheroEnColaResponse">
+    <wsdl:part name="parameters" element="tns:PonerFicheroEnColaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarFicheroResponse">
+    <wsdl:part name="parameters" element="tns:ValidarFicheroResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SubidaFicheroRequest">
+    <wsdl:part name="parameters" element="tns:SubidaFichero">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidarFicheroRequest">
+    <wsdl:part name="parameters" element="tns:ValidarFichero">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SubidaFichero">
+    <wsdl:operation name="SubidaFichero">
+      <wsdl:input message="tns:SubidaFicheroRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:SubidaFicheroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarFichero">
+      <wsdl:input message="tns:ValidarFicheroRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidarFicheroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PonerFicheroEnCola">
+      <wsdl:input message="tns:PonerFicheroEnColaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:PonerFicheroEnColaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnvioFichero">
+      <wsdl:input message="tns:EnvioFicheroRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:EnvioFicheroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubidaFicheroSOAP" type="tns:SubidaFichero">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SubidaFichero">
+      <soap:operation soapAction="http://www.example.org/SubidaFichero/SubidaFichero"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarFichero">
+      <soap:operation soapAction="http://www.example.org/SubidaFichero/ValidarFichero"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PonerFicheroEnCola">
+      <soap:operation soapAction="http://www.example.org/SubidaFichero/PonerFicheroEnCola"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnvioFichero">
+      <soap:operation soapAction="http://www.example.org/SubidaFichero/EnvioFichero"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubidaFichero">
+    <wsdl:port name="SubidaFicheroSOAP" binding="tns:SubidaFicheroSOAP">
+      <soap:address location="http://localhost:9080/SubidaFicheroService/services/SubidaFichero"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

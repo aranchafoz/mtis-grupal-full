@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="peticiones" targetNamespace="http://www.example.org/peticiones/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/peticiones/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/peticiones/">
+      <xsd:element name="recibirPeticion">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="idPeticion" type="xsd:string"/>
+
+          	<xsd:element name="descripcion" type="xsd:string"/>
+
+
+          	<xsd:element name="categoria" type="xsd:string"/>
+
+          	<xsd:element name="lenguaje" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="recibirPeticionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="valida" type="xsd:boolean"/>
+          	<xsd:element name="comentarios" type="xsd:string"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarPeticion">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valida" type="xsd:boolean"/>
+
+      			<xsd:element name="comentarios" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarPeticionResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="valida" type="xsd:boolean"/>
+
+      			<xsd:element name="comentarios" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="recibirPeticionRequest">
+    <wsdl:part name="parameters" element="tns:recibirPeticion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarPeticionResponse">
+    <wsdl:part name="parameters" element="tns:validarPeticionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validarPeticionRequest">
+    <wsdl:part name="parameters" element="tns:validarPeticion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="recibirPeticionResponse">
+    <wsdl:part name="parameters" element="tns:recibirPeticionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="peticiones">
+    <wsdl:operation name="recibirPeticion">
+      <wsdl:input message="tns:recibirPeticionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:recibirPeticionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarPeticion">
+      <wsdl:input message="tns:validarPeticionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:validarPeticionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="peticionesSOAP" type="tns:peticiones">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="recibirPeticion">
+      <soap:operation soapAction="http://www.example.org/peticiones/recibirPeticion"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarPeticion">
+      <soap:operation soapAction="http://www.example.org/peticiones/validarPeticion"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="peticiones">
+    <wsdl:port name="peticionesSOAP" binding="tns:peticionesSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,358 @@
+#%RAML 1.0
+title: Contratar personal
+mediaType: application/json
+baseUri: localhost:3001/contratar
+version: v1.0
+
+types:
+  OfertaEmpleo:
+    type: object
+    properties:
+      id: number
+      category: string
+      title: string
+      description: string
+      minimumRequirements: object
+  PerfilSolicitante:
+    type: object
+    properties:
+      id: number
+      name: string
+      surnames: string
+      birthdate: string
+      location: string
+      habilities: object
+      apliedJob: integer
+      via: string
+      timestamp: string
+  PerfilCandidato:
+    type: object
+    properties:
+      id: number
+      name: string
+      surnames: string
+      birthdate: string
+      location: string
+      habilities: object
+      apliedJob: integer
+      aplicationMark: number
+      aplicationComments: string
+      timestamp: string
+  Trabajador:
+    type: object
+    properties:
+      id: number
+      name: string
+      surnames: string
+      birthdate: string
+      location: string
+      habilities: object
+      job: string
+      
+
+/oferta:
+  get:
+    description: Obtiene todas las ofertas de empleo
+    responses:
+      200:
+        body:
+          application/json:
+            type: OfertaEmpleo []
+      500:
+        body:
+          application/json:
+            type: object
+            example:
+              "error": "No se ha podido obtener el recurso"
+  post:
+    description: Crea una oferta de empleo
+    body:
+      application/json:
+        type: object
+        properties:
+          category: string
+          title: string
+          description: string
+          minimumRequirements: object
+        example:
+          category: "PHP Programmer"
+          title: "PHP Senior Programer"
+          description: "We are looking for a programmer who has 4 years or more of experience programming PHP web sites"
+          minimumRequirements: {
+              "PHP": 8,
+              "JavaScript": 8,
+              "HTML": 8,
+              "CSS": 5
+            }
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            properties: 
+              idOferta: integer
+              ofertaCreadaCorrectamente: boolean
+            example:
+              idOferta: 1
+              ofertaCreadaCorrectamente: true
+      500:
+        body:
+          application/json:
+            type: object
+            properties: 
+              created: boolean
+            example:
+              "created": false
+  /{idOferta}:
+    get:
+      description: Obtiene una oferta de empleo
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              properties:
+                id: integer
+                category: string
+                title: string
+                description: string
+                minimumRequirements: object
+                published: boolean
+                timestamp: string
+              example:
+                id: 0
+                category: "PHP Programmer"
+                title: "PHP Senior Programer"
+                description: "We are looking for a programmer who has 4 years or more of experience programming PHP web sites"
+                minimumRequirements: 
+                  {
+                    "PHP": 8,
+                    "JavaScript": 8,
+                    "HTML": 8,
+                    "CSS": 5
+                  }
+                published: false
+                timestamp: "2018-01-03"
+        500:
+          body:
+            application/json:
+              type: object
+              example:
+                "error": "No se ha podido obtener el recurso"
+    /publicar:
+      post:
+        description: Publica la oferta
+        responses:
+          200:
+            body: # declare content of response
+              application/json: # media type
+                type: object
+                properties:
+                  idOferta: integer
+                  ofertaPublicadaCorrectamente: boolean
+                example:
+                  idOferta: 1
+                  ofertaPublicadaCorrectamente: true
+/perfil:
+  /solicitante:
+    /{id}:
+      get:
+        description: Devuelve el perfil
+        responses:
+          200:
+            body:
+              type: PerfilSolicitante
+              example:
+                id: 1
+                name: "Pepe"
+                surnames: "García"
+                birthdate: "1999-09-09"
+                location: "Madrid"
+                apliedJob: 1
+                habilities: 
+                  {
+                    "PHP": 8,
+                    "JavaScript": 8,
+                    "HTML": 8,
+                    "CSS": 5
+                  }
+                via: "correo"
+                timestamp: "2018-08-08"
+          500:
+            body:
+              application/json:
+                type: object
+                example:
+                  "error": "No se ha podido obtener el recurso"
+    /correo:
+      get:
+        description: recibir perfiles desde correo
+        responses:
+          200:
+            body:
+              type: PerfilSolicitante []
+          500:
+            body:
+              application/json:
+                type: object
+                example:
+                  "error": "No se ha podido obtener el recurso"
+    /linkedin:
+      get:
+        description: recibir perfiles desde linkedIn
+        responses:
+          200:
+            body:
+              type: PerfilSolicitante []
+          500:
+            body:
+              application/json:
+                type: object
+                example:
+                  "error": "No se ha podido obtener el recurso"
+  /candidato:
+    get:
+      description: recibir perfiles 
+      responses:
+        200:
+          body:
+            type: PerfilCandidato []
+        500:
+          body:
+            application/json:
+              type: object
+              example:
+                "error": "No se ha podido obtener el recurso"
+    
+    post:
+      description: Perfil guardado
+      body:
+        application/json:
+          type: object
+          properties:
+            name: string
+            surnames: string
+            birthdate: string
+            location: string
+            habilities: object
+            apliedJob: integer
+            aplicationMark: integer
+            aplicationComments: string
+          example:
+            name: "Jay"
+            surnames: "Xin"
+            birthdate: "1999-01-01"
+            location: "China"
+            habilities: 
+              {
+                "PHP": 8,
+                "JavaScript": 8,
+                "HTML": 8,
+                "CSS": 5
+              }
+            apliedJob: 1
+            aplicationMark: 6
+            aplicationComments: "Ahí ahi"
+      responses:
+        200:
+          body: # declare content of response
+            application/json: # media type
+              type: object
+              properties:
+                idPerfil: integer
+                candidatoGuardadoCorrectamente: boolean
+              example:
+                idPerfil: 1
+                candidatoGuardadoCorrectamente: true
+        500:
+          body:
+            application/json:
+              type: object
+              example:
+                "error": "No se ha podido obtener el recurso"
+    /{id}:
+      get:
+        description: Devuelve el perfil
+        responses:
+          200:
+            body:
+              type: PerfilCandidato
+              example:
+                id: 1
+                name: "Jay"
+                surnames: "Xin"
+                birthdate: "1999-01-01"
+                location: "China"
+                habilities: 
+                  {
+                    "PHP": 8,
+                    "JavaScript": 8,
+                    "HTML": 8,
+                    "CSS": 5
+                  }
+                apliedJob: 1
+                aplicationMark: 6
+                aplicationComments: "Ahí ahi"
+                timestamp: "2010-01-01"
+          500:
+            body:
+              application/json:
+                type: object
+                example:
+                  "error": "No se ha podido obtener el recurso"
+/trabajador:
+  get:
+    description: recibir perfiles 
+    responses:
+      200:
+        body:
+          type: Trabajador []
+      500:
+        body:
+          application/json:
+            type: object
+            example:
+              "error": "No se ha podido obtener el recurso"
+  post:
+    description: Guardar trabajador
+    body:
+      application/json:
+        type: object
+        properties:
+          name: string
+          surnames: string
+          birthdate: string
+          location: string
+          habilities: object
+          job: string
+        example:
+          name: "Jay"
+          surnames: "Xin"
+          birthdate: "1999-01-01"
+          location: "China"
+          habilities: 
+            {
+              "PHP": 8,
+              "JavaScript": 8,
+              "HTML": 8,
+              "CSS": 5
+            }
+          job: "Python developer"
+    responses:
+      200:
+        body: # declare content of response
+          application/json: # media type
+            type: object
+            properties:
+              idPerfil: integer
+              trabajadorGuardadoCorrectamente: boolean
+            example:
+              idPerfil: 1
+              trabajadorGuardadoCorrectamente: true
+      500:
+        body:
+          application/json:
+            type: object
+            example:
+              "error": "No se ha podido obtener el recurso"
+                  

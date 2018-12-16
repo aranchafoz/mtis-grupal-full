@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PanelSolarWSDL" targetNamespace="http://www.example.org/PanelSolarWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/PanelSolarWSDL/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/PanelSolarWSDL/">
+      <xsd:element name="moverPanel">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="grados" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="moverPanelResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="movido" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="rotarPanel">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="grados" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="rotarPanelResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="rotado" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activarDefensas">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="activar" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activarDefensasResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="activadas" type="xsd:boolean"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="moverPanelResponse">
+    <wsdl:part name="parameters" element="tns:moverPanelResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rotarPanelRequest">
+    <wsdl:part name="parameters" element="tns:rotarPanel">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rotarPanelResponse">
+    <wsdl:part name="parameters" element="tns:rotarPanelResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="moverPanelRequest">
+    <wsdl:part name="parameters" element="tns:moverPanel">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activarDefensasResponse">
+    <wsdl:part name="parameters" element="tns:activarDefensasResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="activarDefensasRequest">
+    <wsdl:part name="parameters" element="tns:activarDefensas">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PanelSolarWSDL">
+    <wsdl:operation name="moverPanel">
+      <wsdl:input message="tns:moverPanelRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:moverPanelResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rotarPanel">
+      <wsdl:input message="tns:rotarPanelRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:rotarPanelResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activarDefensas">
+      <wsdl:input message="tns:activarDefensasRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:activarDefensasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PanelSolarWSDLSOAP" type="tns:PanelSolarWSDL">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="moverPanel">
+      <soap:operation soapAction="http://www.example.org/PanelSolarWSDL/moverPanel"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rotarPanel">
+      <soap:operation soapAction="http://www.example.org/PanelSolarWSDL/rotarPanel"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activarDefensas">
+      <soap:operation soapAction="http://www.example.org/PanelSolarWSDL/activarDefensas"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PanelSolarWSDL">
+    <wsdl:port name="PanelSolarWSDLSOAP" binding="tns:PanelSolarWSDLSOAP">
+      <soap:address location="http://localhost:9080/MTISGrupoPanelSolar/services/PanelSolarWSDL/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

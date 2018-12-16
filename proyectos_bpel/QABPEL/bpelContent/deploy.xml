@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:QASoftware="http://QASoftware" xmlns:informes="http://www.example.org/informes/" xmlns:peticiones="http://www.example.org/peticiones/" xmlns:tests="http://www.example.org/tests/">
+  <process name="QASoftware:QASoftware">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="QASoftware:QASoftwareService" port="QASoftwarePort"/>
+    </provide>
+    <invoke partnerLink="Peticiones">
+      <service name="peticiones:peticiones" port="peticionesSOAP"/>
+    </invoke>
+    <invoke partnerLink="Tests">
+      <service name="tests:tests" port="testsSOAP"/>
+    </invoke>
+    <invoke partnerLink="Informe">
+      <service name="informes:informes" port="informesSOAP"/>
+    </invoke>
+  </process>
+</deploy>

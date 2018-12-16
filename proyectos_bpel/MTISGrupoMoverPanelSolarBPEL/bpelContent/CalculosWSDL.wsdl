@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/CalculosWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CalculosWSDL" targetNamespace="http://www.example.org/CalculosWSDL/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/CalculosWSDL/">
+      <xsd:element name="calculoDefensas">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="granizo" type="xsd:string" />
+          	<xsd:element name="intensidad" type="xsd:string"></xsd:element>
+          	<xsd:element name="posSolar" type="xsd:int"></xsd:element>
+          	<xsd:element name="temperatura" type="xsd:int"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="calculoDefensasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="defensasActivar" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="calculoRotacion">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="granizo" type="xsd:string"></xsd:element>
+      			<xsd:element name="intensidad" type="xsd:string"></xsd:element>
+      			<xsd:element name="posSolar" type="xsd:int"></xsd:element>
+      			<xsd:element name="temperatura" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="calculoRotacionResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="rotacionGrados" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="calculoMovilidad">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="granizo" type="xsd:string"></xsd:element>
+      			<xsd:element name="intensidad" type="xsd:string"></xsd:element>
+      			<xsd:element name="posSolar" type="xsd:int"></xsd:element>
+      			<xsd:element name="temperatura" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="calculoMovilidadResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="movilidadGrados" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="calculoDefensasRequest">
+    <wsdl:part element="tns:calculoDefensas" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="calculoDefensasResponse">
+    <wsdl:part element="tns:calculoDefensasResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="calculoRotacionRequest">
+  	<wsdl:part name="parameters" element="tns:calculoRotacion"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculoRotacionResponse">
+  	<wsdl:part name="parameters" element="tns:calculoRotacionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculoMovilidadRequest">
+  	<wsdl:part name="parameters" element="tns:calculoMovilidad"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculoMovilidadResponse">
+  	<wsdl:part name="parameters" element="tns:calculoMovilidadResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CalculosWSDL">
+    <wsdl:operation name="calculoDefensas">
+      <wsdl:input message="tns:calculoDefensasRequest"/>
+      <wsdl:output message="tns:calculoDefensasResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="calculoRotacion">
+    	<wsdl:input message="tns:calculoRotacionRequest"></wsdl:input>
+    	<wsdl:output message="tns:calculoRotacionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculoMovilidad">
+    	<wsdl:input message="tns:calculoMovilidadRequest"></wsdl:input>
+    	<wsdl:output message="tns:calculoMovilidadResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculosWSDLSOAP" type="tns:CalculosWSDL">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="calculoDefensas">
+  		<soap:operation
+  			soapAction="http://www.example.org/CalculosWSDL/calculoDefensas" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="calculoRotacion">
+  		<soap:operation
+  			soapAction="http://www.example.org/CalculosWSDL/calculoRotacion" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="calculoMovilidad">
+  		<soap:operation
+  			soapAction="http://www.example.org/CalculosWSDL/calculoMovilidad" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculosWSDL">
+    <wsdl:port binding="tns:CalculosWSDLSOAP" name="CalculosWSDLSOAP">
+      <soap:address location="http://localhost:9080/MTISGrupoCalculos/services/CalculosWSDL/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

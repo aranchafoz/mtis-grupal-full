@@ -1,0 +1,458 @@
+#%RAML 1.0
+title: Aplicacion de gestion para la fabricacion de paneles solares
+baseUri: http://localhost:3000/fabricacionPaneles
+
+types:
+  htmlError: |
+    {
+      "title": "Respuesta a cualquier solicitud que devuelve un error html (400)",
+      "description": "Respuesta a cualquier solicitud que devuelve un error html (400)",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Mensaje que describe el error"
+        }
+      }
+    }
+
+  correctResponse: |
+    {
+      "title": "Respuesta a cualquier solicitud de actualizar o crear un recurso",
+      "description": "Respuesta a cualquier solicitud de actualizar o crear un recurso",
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Mensaje que aclara que se ha actualizado o creado el recurso"
+        }
+      }
+    }
+
+  pedidoInfo: |
+    {
+      "title": "Entrada de PUT/pedidos/{id} y POST/pedidos: la informacion de un pedido",
+      "description": "Entrada de PUT/pedidos/{id} y POST/pedidos: la informacion de un pedido",
+      "type": "object",
+      "properties": {
+        "panelesEncargados": {
+          "type": "integer",
+          "description": "La cantidad de paneles solicitados en el pedido"
+        },
+        "estado": {
+          "type": "string",
+          "description": "El estado del pedido: Nuevo, Materiales en envio, En fabricacion, En QA, Listo para envio"
+        },
+        "cliente": {
+          "type": "integer",
+          "description": "id del cliente que ha hecho el pedido"
+        }
+      }
+    }
+
+  pedidoInfoResponse: |
+    {
+      "title": "Respuesta de GET/pedidos/{id} : la informacion de un pedido",
+      "description": "Respuesta de GET/pedidos/{id}: la informacion de un pedido",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "El id del pedido"
+        },
+        "panelesEncargados": {
+          "type": "integer",
+          "description": "La cantidad de paneles solicitados en el pedido"
+        },
+        "estado": {
+          "type": "string",
+          "description": "El estado del pedido: Nuevo, Materiales en envio, En fabricacion, En QA, Listo para envio"
+        },
+        "cliente": {
+          "type": "integer",
+          "description": "id del cliente que ha hecho el pedido"
+        }
+      }
+    }
+
+  listaPedidos: |
+    {
+      "title": "Lista de pedidos",
+      "description": "Lista de todos los pedidos",
+      "type": "object",
+      "properties": {
+        "pedidos": {
+          "type": "array"
+        }
+      },
+      "example":
+        [
+         {
+            "panelesEncargados": 3,
+            "estado": "En fabricacion",
+            "cliente": 5
+          },
+          {
+            "panelesEncargados": 7,
+            "estado": "En fabricacion",
+            "cliente": 5
+          }
+        ]
+
+    }
+
+  materialInfo: |
+    {
+      "title": "Entrada de PUT/materiales/{id}: la informacion de un material",
+      "description": "Entrada de PUT/materiales/{id}: la informacion de un material",
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "description": "El nombre del material"
+        },
+        "cantidadDisponible": {
+          "type": "integer",
+          "description": "La cantidad de dicho material que queda en el almacen sin asignar a ningun pedido"
+        }
+      }
+    }
+
+  materialInfoResponse: |
+    {
+      "title": "Respuesta de GET/materiales/{id}: la informacion de un material",
+      "description": "Respuesta de GET/materiales/{id}: la informacion de un material",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "El id del material"
+        },
+        "nombre": {
+          "type": "string",
+          "description": "El nombre del material"
+        },
+        "cantidadDisponible": {
+          "type": "integer",
+          "description": "La cantidad de dicho material que queda en el almacen sin asignar a ningun pedido"
+        },
+        "cantidadFabricacion": {
+          "type": "integer",
+          "description": "La cantidad del material necesaria para hacer un panel"
+        }
+      }
+    }
+
+  listaMateriales: |
+    {
+      "title": "Lista de materiales",
+      "description": "Lista de todos los materiales",
+      "type": "object",
+      "properties": {
+        "materiales": {
+          "type": "array"
+        }
+      },
+      "example":
+        [
+         {
+            "id": 4,
+            "nombre": "Resistencia",
+            "cantidadDisponible": 18
+          },
+          {
+            "id": 34,
+            "nombre": "panel de plastico",
+            "cantidadDisponible": 12
+          }
+        ]
+    }
+
+  pedidoMaterialInfo: |
+    {
+      "title": "Peticion POST para realizar una compra de un material",
+      "description": "Entrada de la llamada POST/materiales/pedido",
+      "type": "object",
+      "properties": {
+        "material": {
+          "type": "string",
+          "description": "El material que se solicita"
+        },
+        "cantidad": {
+          "type": "integer",
+          "description": "La cantidad del material a comprar"
+        }
+      }
+    }
+
+  pedidoMaterialInfoResponse: |
+    {
+      "title": "Peticion POST para realizar una compra de un material",
+      "description": "Entrada de la llamada POST/materiales/pedido",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "El id del pedido"
+        },
+        "material": {
+          "type": "string",
+          "description": "El material que se solicita"
+        },
+        "cantidad": {
+          "type": "integer",
+          "description": "La cantidad del material a comprar"
+        }
+      }
+    }
+
+/pedidos:
+  get:
+    description: Devuelve una lista con todos los pedidos
+    responses:
+      200:
+        body:
+          application/json:
+            type: listaPedidos
+  post:
+      description: Para crear un nuevo pedido
+      body:
+        application/json:
+          required: true
+          type: pedidoInfo
+          example: |
+            {
+              "panelesEncargados": 3,
+              "estado": "En fabricacion",
+              "cliente": 5
+            }
+      responses:
+        201:
+          body:
+            application/json:
+              type: correctResponse
+              example: |
+                {
+                  "message": "Pedido creado correctamente"
+                }
+        400:
+          body:
+            application/json:
+              type: htmlError
+              example: |
+                {
+                  "error": "Falta estado, cliente y/o cantidad de paneles encargados"
+                }
+  /estado:
+    /{estado}:
+      uriParameters:
+        estado:
+          displayName: estado
+          type: string
+          description: "El estado de los pedidos a obtener"
+          required: true
+          example: "Nuevo"
+      get:
+        description: Devuelve una lista con todos los pedidos del estado pedido
+        responses:
+          200:
+            body:
+              application/json:
+                type: listaPedidos
+  /{id}:
+    uriParameters:
+      id:
+        displayName: id
+        type: integer
+        description: "El id del pedido que se quiere consultar"
+        required: true
+        example: 24
+    get:
+      description: Obtiene la informacion del pedido que tiene el id recibido por parametro en la URL
+      responses:
+        200:
+          body:
+            application/json:
+              type: pedidoInfoResponse
+              example: |
+                {
+                  "id": 3,
+                  "panelesEncargados": 3,
+                  "estado": "En fabricacion",
+                  "cliente": 5
+                }
+        400:
+          body:
+            application/json:
+              type: htmlError
+              example: |
+                {
+                  "error": "El id debe ser numerico"
+                }
+        404:
+          body:
+            application/json:
+              type: htmlError
+              example: |
+                {
+                  "error": "El pedido con el id 24 no existe"
+                }
+    put:
+      description: Cambia la informacion del pedido que tiene el id recibido por parametro en la URL
+      body:
+        application/json:
+          type: pedidoInfo
+          example: |
+            {
+              "panelesEncargados": 1,
+              "estado": "Nuevo",
+              "cliente": 4
+            }
+      responses:
+        204:
+        400:
+          body:
+            application/json:
+              type: htmlError
+              example: |
+                {
+                  "error": "Falta panelesEncargados, estado y/o cliente"
+                }
+        404:
+          body:
+              application/json:
+                type: htmlError
+                example: |
+                  {
+                    "error": "El pedido con el id 24 no existe"
+                  }
+    /siguienteEstado:
+      get:
+        description: No devuelve nada
+        responses:
+          204:
+
+/materiales:
+  get:
+    description: Devuelve una lista con todos los pedidos
+    responses:
+      200:
+        body:
+          application/json:
+              type: listaMateriales
+  /{id}:
+    uriParameters:
+      id:
+        displayName: id
+        type: integer
+        description: "El id del material que se quiere consultar"
+        required: true
+        example: 10
+    get:
+      description: Obtiene la informacion del material que tiene el id recibido por parametro en la URL
+      responses:
+          200:
+            body:
+              application/json:
+                type: materialInfoResponse
+                example: |
+                  {
+                    "id": 3,
+                    "nombre": "Resistencia",
+                    "cantidadDisponible": 121
+                  }
+          404:
+            body:
+              application/json:
+                type: htmlError
+                example: |
+                  {
+                    "error": "El material con el id 24 no existe"
+                  }
+    put:
+      description: Cambia la informacion del material que tiene el id recibido por parametro en la URL
+      body:
+        application/json:
+          required: true
+          type: materialInfo
+          example: |
+            {
+              "nombre": "Cable",
+              "cantidadDisponible": 5
+            }
+      responses:
+        204:
+        400:
+          body:
+            application/json:
+              type: htmlError
+              example: |
+                {
+                  "error": "Falta nombre y/o cantidadDisponible"
+                }
+        404:
+          body:
+              application/json:
+                type: htmlError
+                example: |
+                  {
+                    "error": "El material con el id 24 no existe"
+                  }
+/pedidosMateriales:
+  get:
+    description: Obtiene la informacion del pedido que tiene el id recibido por parametro en la URL
+    responses:
+      200:
+        body:
+          application/json:
+            type: pedidoMaterialInfoResponse
+            example: |
+              {
+                "id": 3,
+                "material": "Cable",
+                "cantidad": 5
+              }
+      400:
+        body:
+          application/json:
+            type: htmlError
+            example: |
+              {
+                "error": "El id debe ser numerico"
+              }
+      404:
+        body:
+          application/json:
+            type: htmlError
+            example: |
+              {
+                "error": "El pedido con el id 24 no existe"
+              }
+  post:
+    description: Para crear un nuevo pedido de un material a los proveedores
+    body:
+      application/json:
+        required: true
+        type: pedidoMaterialInfo
+        example: |
+          {
+            "material": "Cable",
+            "cantidad": 5
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            type: correctResponse
+            example: |
+              {
+                "message": "Pedido creado correctamente"
+              }
+      400:
+        body:
+          application/json:
+            type: htmlError
+            example: |
+              {
+                "error": "Falta algun dato: material o cantidad"
+              }

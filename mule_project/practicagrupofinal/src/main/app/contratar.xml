@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    <http:listener-config name="contratar-httpListenerConfig" host="0.0.0.0" port="9093" doc:name="HTTP Listener Configuration"/>
+    <apikit:config name="contratar-config" raml="contratar.raml" consoleEnabled="false" doc:name="Router"/>
+    <http:request-config name="HTTP_Request_APIContratarPersonal" host="localhost" port="3001" doc:name="HTTP Request Configuration" basePath="/contratar">
+        <http:raml-api-configuration location="contratar.raml"/>
+    </http:request-config>
+    <flow name="contratar-main">
+        <http:listener config-ref="contratar-httpListenerConfig" path="/contratar/*" doc:name="HTTP"/>
+        <apikit:router config-ref="contratar-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="contratar-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="contratar-console">
+        <http:listener config-ref="contratar-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="contratar-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="get:/perfil/candidato:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/candidato" method="GET" doc:name="HTTP"/>
+
+    </flow>
+    <flow name="get:/perfil/solicitante/correo:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/solicitante/correo" method="GET" doc:name="HTTP"/>
+
+    </flow>
+    <flow name="get:/perfil/solicitante/linkedin:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/solicitante/linkedin" method="GET" doc:name="HTTP"/>
+
+    </flow>
+    <flow name="get:/oferta:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/oferta" method="GET" doc:name="HTTP"/>
+
+    </flow>
+    <flow name="get:/trabajador:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/trabajador" method="GET" doc:name="HTTP"/>
+
+    </flow>
+    <flow name="get:/oferta/{idOferta}:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/oferta/{idOferta}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="idOferta" value="#[message.inboundProperties.'http.uri.params'.idOferta]"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="get:/perfil/solicitante/{id}:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/solicitante/{id}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="id" value="#[message.inboundProperties.'http.uri.params'.id]"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="get:/perfil/candidato/{id}:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/candidato/{id}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="id" value="#[message.inboundProperties.'http.uri.params'.id]"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="post:/perfil/candidato:application/json:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/perfil/candidato" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:header headerName="Content-Type" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="post:/oferta:application/json:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/oferta" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:header headerName="Content-Type" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="post:/oferta/{idOferta}/publicar:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/oferta/{idOferta}/publicar" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="idOferta" value="#[message.inboundProperties.'http.uri.params'.idOferta]"/>
+                <http:header headerName="Content-Type" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <flow name="post:/trabajador:application/json:contratar-config">
+        <http:request config-ref="HTTP_Request_APIContratarPersonal" path="/trabajador" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:header headerName="Content-Type" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+
+    </flow>
+    <apikit:mapping-exception-strategy name="contratar-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

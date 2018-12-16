@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="informes" targetNamespace="http://www.example.org/informes/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/informes/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/informes/">
+      <xsd:element name="generarInforme">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idInforme" type="xsd:int"/>
+          	<xsd:element name="prioridad" type="xsd:string"/>
+          	<xsd:element name="error" type="xsd:boolean"/>
+          	<xsd:element name="descripcionError" type="xsd:string"/>
+          	<xsd:element name="lenguaje" type="xsd:string"/>
+          	<xsd:element name="grupoTesting" type="xsd:string"/>
+          	<xsd:element name="departamento" type="xsd:string"/>
+          	<xsd:element name="categoria" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="generarInformeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idInforme" type="xsd:int"/>
+          	<xsd:element name="posicionCola" type="xsd:int"/>
+          	<xsd:element name="informe" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="generarInformeResponse">
+    <wsdl:part name="parameters" element="tns:generarInformeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generarInformeRequest">
+    <wsdl:part name="parameters" element="tns:generarInforme">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="informes">
+    <wsdl:operation name="generarInforme">
+      <wsdl:input message="tns:generarInformeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:generarInformeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="informesSOAP" type="tns:informes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="generarInforme">
+      <soap:operation soapAction="http://www.example.org/informes/generarInforme"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="informes">
+    <wsdl:port name="informesSOAP" binding="tns:informesSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

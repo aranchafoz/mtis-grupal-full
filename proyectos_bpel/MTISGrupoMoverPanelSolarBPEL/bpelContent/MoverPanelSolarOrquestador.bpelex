@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="ASCII"?>
+<extensionmodel:ExtensionMap xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:org.eclipse.bpel.ui.uiextensionmodel="http:///org/eclipse/bpel/ui/uiextensionmodel.ecore" namespace="http://org.eclipse.bpel.ui/">
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.5"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#/"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1526744843508"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="-16" y="21" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="267" y="22" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="502" y="13" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="760" y="12" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.0/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.5"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.6"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.7"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.8"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.9"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.1/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.10"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.11"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.2/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.12"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.13"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.1/@activities.0/@activities.3/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="-4" y="25" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="311" y="26" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="598" y="26" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.14"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.15"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0/@copy.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.0/@copy.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.16"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.0/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.17"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.18"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.19"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.20"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0/@copy.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.0/@copy.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.1/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.21"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.22"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0/@copy.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0/@copy.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.0/@copy.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.2/@activities.0/@activities.2/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="-6" y="43" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="245" y="42" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="462" y="43" width="-1" height="-1"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.23"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.24"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.25"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.26"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.27"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.0/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.28"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.29"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.1/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.30"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@variables/@children.31"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.3/@activities.0/@activities.2/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.4"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.4/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="MoverPanelSolarOrquestador.bpel#//@activity/@activities.4/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+</extensionmodel:ExtensionMap>

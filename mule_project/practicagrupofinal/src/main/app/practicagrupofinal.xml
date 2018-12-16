@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" database="paneles_solares" doc:name="MySQL Configuration"/>
+    <http:request-config name="HTTP_Request_FabricacionPaneles" host="localhost" port="9091" doc:name="HTTP Request Configuration"/>
+    <http:listener-config name="HTTP_Listener_Principal" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
+    <ws:consumer-config name="Web_Service_Consumer" service="UploadFileProcessService" port="UploadFileProcessPort" serviceAddress="http://localhost:8080/ode/processes/UploadFileProcess" wsdlLocation="http://localhost:8080/ode/deployment/bundles/UploadFileProcess/UploadFileProcessArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="Web_Service_Consumer1" service="MoverPanelSolarOrquestadorService" port="MoverPanelSolarOrquestadorPort" serviceAddress="http://localhost:8080/ode/processes/MoverPanelSolarOrquestador" wsdlLocation="http://localhost:8080/ode/deployment/bundles/MTISGrupoMoverPanelSolarBPEL/MoverPanelSolarOrquestadorArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="QASoftware_WebService" service="QASoftwareService" port="QASoftwarePort" serviceAddress="http://localhost:8080/ode/processes/QASoftware" wsdlLocation="http://localhost:8080/ode/deployment/bundles/QABPEL/QASoftwareArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <http:request-config name="HTTP_Request_ecommerce" host="localhost" port="9092" doc:name="HTTP Request Configuration"/>
+    <ws:consumer-config name="SubidaFichero_Service_Consume" service="UploadFileProcessService" port="UploadFileProcessPort" serviceAddress="http://localhost:8080/ode/processes/UploadFileProcess" wsdlLocation="http://localhost:8080/ode/deployment/bundles/UploadFileProcess/UploadFileProcessArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <ws:consumer-config name="UploadFile_Service_Consumer" service="UploadFileProcessService" port="UploadFileProcessPort" serviceAddress="http://localhost:8080/ode/processes/UploadFileProcess" wsdlLocation="http://localhost:8080/ode/deployment/bundles/UploadFileProcess/UploadFileProcessArtifacts.wsdl" doc:name="Web Service Consumer"/>
+    <http:request-config name="HTTP_Request_ContratarPersonal" host="localhost" port="9093" doc:name="HTTP Request Configuration"/>
+    <flow name="practicagrupofinalFlow1">
+        <http:listener config-ref="HTTP_Listener_Principal" path="*" doc:name="HTTP"/>
+        <choice doc:name="Choice">
+            <when expression="#[regex('/fabricacionPaneles.*', message.inboundProperties.'http.request.path')]">
+                <flow-ref name="fabricacionPaneles" doc:name="fabricacionPaneles"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path'.contains('moverpanelsolar')]">
+                <flow-ref name="MoverPanelSolar" doc:name="MoverPanelSolar"/>
+            </when>
+            <when expression="#[regex('/ecommerce.*', message.inboundProperties.'http.request.path')]">
+                <flow-ref name="ecommerce" doc:name="ecommerce"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path' == '/qasoftware']">
+                <flow-ref name="QASoftware" doc:name="QASoftware"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.request.path' == '/subirFichero']">
+                <flow-ref name="SubidaFicheroTrabajo" doc:name="SubidaFicheroTrabajo"/>
+            </when>
+            <when expression="#[regex('/contratar.*', message.inboundProperties.'http.request.path')]">
+                <flow-ref name="contratarPersonalRoutes" doc:name="ContratarPersonal"/>
+            </when>
+            <otherwise>
+                <set-payload value="#['No existe']" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="MoverPanelSolar">
+        <set-payload value="&lt;?xml version='1.0' encoding='windows-1252'?&gt;
+&lt;ns0:MoverPanelSolarOrquestadorRequest xmlns:ns0=&quot;http://MoverPanelSolarOrquestador&quot;&gt;
+  &lt;ns0:hora&gt;#[json:'hora']&lt;/ns0:hora&gt;
+&lt;/ns0:MoverPanelSolarOrquestadorRequest&gt;" doc:name="Set Payload"/>
+
+        <ws:consumer config-ref="Web_Service_Consumer1" operation="process" doc:name="Web Service Consumer"/>
+        <json:xml-to-json-transformer doc:name="XML to JSON"/>
+
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="QASoftware">
+        <set-payload value="&lt;?xml version='1.0' encoding='windows-1252'?&gt; 
+&lt;ns0:QASoftwareRequest xmlns:ns0=&quot;http://QASoftware&quot;&gt;
+	&lt;ns0:idPeticion&gt;#[json:'idPeticion']&lt;/ns0:idPeticion&gt;
+	&lt;ns0:descripcion&gt;#[json:'descripcion']&lt;/ns0:descripcion&gt;
+	&lt;ns0:departamento&gt;#[json:'departamento']&lt;/ns0:departamento&gt;
+	&lt;ns0:categoria&gt;#[json:'categoria']&lt;/ns0:categoria&gt;
+	&lt;ns0:lenguaje&gt;#[json:'lenguaje']&lt;/ns0:lenguaje&gt;
+&lt;/ns0:QASoftwareRequest&gt;" doc:name="Set Payload"/>
+        <ws:consumer config-ref="QASoftware_WebService" operation="process" doc:name="Web Service Consumer"/>
+        <json:xml-to-json-transformer doc:name="XML to JSON"/>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="contratarPersonalRoutes">
+        <choice doc:name="Choice">
+            <when expression="#[(regex('/contratar/oferta', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Listar ofertas"/>
+            </when>
+            <when expression="#[(regex('/contratar/oferta.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Obtener oferta"/>
+            </when>
+            <when expression="#[(regex('/contratar/oferta', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Crear oferta"/>
+            </when>
+            <when expression="#[(regex('/contratar/oferta.*./publicar', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Publicar Oferta"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/solicitante.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Obtener solicitante"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/solicitante/correo', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Obtener solicitantes por correo"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/solicitante/linkedin', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Obtener solicitantes por linkedin"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/candidato', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Guardar candidato"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/candidato', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Listar candidatos"/>
+            </when>
+            <when expression="#[(regex('/contratar/perfil/candidato.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Obtener candidato"/>
+            </when>
+            <when expression="#[(regex('/contratar/trabajador', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Listar trabajadores"/>
+            </when>
+            <when expression="#[(regex('/contratar/trabajador', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ContratarPersonal" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Guardar trabajador"/>
+            </when>
+            <otherwise>
+                <set-payload value="#['No existe la URL']" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="fabricacionPaneles">
+        <choice doc:name="Choice">
+            <when expression="#[(regex('/fabricacionPaneles/pedidos', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Lista Pedidos"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/materiales', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Lista materiales"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/pedidosMateriales', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Lista pedidos de material"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/pedidos', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Crear pedido"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/pedidosMateriales', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="/fabricacionPaneles/pedidosMateriales" method="POST" doc:name="Crear pedido de materiales"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/pedidos.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'PUT')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="PUT" doc:name="Actualizar pedido"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/materiales.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'PUT')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="PUT" doc:name="Actualizar material"/>
+            </when>
+            <when expression="#[(regex('/fabricacionPaneles/pedidos.*./siguienteEstado', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_FabricacionPaneles" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="SiguienteEstado"/>
+            </when>
+            <otherwise>
+                <set-payload value="#['No existe la url']" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="ecommerce">
+        <choice doc:name="Choice">
+            <when expression="#[(regex('/ecommerce/stock', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Get_Stock"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/stock', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="Post_Stock"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/stock.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Get_Product"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/stock.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'PUT')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="PUT" doc:name="modify_Product"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/stock.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'DELETE')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="DELETE" doc:name="delete_Product"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/factura', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'POST')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="POST" doc:name="create_Factura"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/factura.*', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'DELETE')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="DELETE" doc:name="delete_Factura"/>
+            </when>
+            <when expression="#[(regex('/ecommerce/factura', message.inboundProperties.'http.request.path') != null) &amp;&amp; (message.inboundProperties['http.method'] == 'GET')]">
+                <http:request config-ref="HTTP_Request_ecommerce" path="#[message.inboundProperties.'http.request.path']" method="GET" doc:name="Get_Facturas"/>
+            </when>
+            <otherwise>
+                <set-payload value="#['No existe la url']" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="SubidaFicheroTrabajo">
+        <set-payload value="&lt;?xml version='1.0' encoding='windows-1252'?&gt;   &lt;ns0:UploadFileProcessRequest xmlns:ns0=&quot;http://eclipse.org/bpel/sample&quot;&gt;         &lt;ns0:idWorker&gt;#[json:'idWorker']&lt;/ns0:idWorker&gt;         &lt;ns0:idOffice&gt;#[json:'idOffice']&lt;/ns0:idOffice&gt; &lt;ns0:idDepartment&gt;#[json:'idDepartment']&lt;/ns0:idDepartment&gt; &lt;ns0:extension&gt;#[json:'extension']&lt;/ns0:extension&gt; &lt;ns0:content&gt;#[json:'content']&lt;/ns0:content&gt; &lt;ns0:date&gt;#[json:'date']&lt;/ns0:date&gt; &lt;/ns0:UploadFileProcessRequest&gt;" doc:name="Set Payload"/>
+        <ws:consumer config-ref="UploadFile_Service_Consumer" operation="process" doc:name="Web Service Consumer"/>
+        <json:xml-to-json-transformer doc:name="XML to JSON"/>
+        <set-payload value="#[payload]" doc:name="Set Payload"/>
+    </flow>
+
+</mule>

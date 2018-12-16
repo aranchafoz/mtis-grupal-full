@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://eclipse.org/bpel/sample" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://www.example.org/SubidaFichero/" name="UploadFileProcess" targetNamespace="http://eclipse.org/bpel/sample">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="SubidaFicheroPLN">
+    <plnk:role name="SubidaFicheroRole" portType="wsdl:SubidaFichero"/>
+  </plnk:partnerLinkType>
+    <import location="SubidaFichero.wsdl" namespace="http://www.example.org/SubidaFichero/"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://eclipse.org/bpel/sample">
+
+            <element name="UploadFileProcessRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="idWorker" type="string" />
+                    	<element name="idOffice" type="string" />
+                    	<element name="idDepartment" type="string" />
+                    	<element name="content" type="string" />
+                    	<element name="extension" type="string" />
+                    	<element name="date" type="date"></element>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="UploadFileProcessResponse">
+                <complexType>
+                    <sequence>
+                    	<element name="result" type="string" />
+                    	<element name="uploaded" type="boolean"></element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="UploadFileProcessRequestMessage">
+        <part element="tns:UploadFileProcessRequest" name="payload"/>
+    </message>
+    <message name="UploadFileProcessResponseMessage">
+        <part element="tns:UploadFileProcessResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the UploadFileProcess BPEL process -->
+    <portType name="UploadFileProcess">
+        <operation name="process">
+            <input message="tns:UploadFileProcessRequestMessage"/>
+            <output message="tns:UploadFileProcessResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="UploadFileProcess">
+        <plnk:role name="UploadFileProcessProvider" portType="tns:UploadFileProcess"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="UploadFileProcessBinding"
+    	type="tns:UploadFileProcess">
+
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="process">
+
+    		<soap:operation
+    			soapAction="http://eclipse.org/bpel/sample/process" />
+    		<input>
+
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="UploadFileProcessService">
+    	<port binding="tns:UploadFileProcessBinding" name="UploadFileProcessPort">
+    		<soap:address location="http://localhost:8080/ode/processes/UploadFileProcess"/>
+    	</port>
+    </service>
+</definitions>

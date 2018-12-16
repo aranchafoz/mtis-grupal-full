@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="peticiones">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.peticiones.PeticionesMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.peticiones.PeticionesSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="validarPeticion" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/peticiones/">
+            <actionMapping>http://www.example.org/peticiones/validarPeticion</actionMapping>
+            <outputActionMapping>http://www.example.org/peticiones/peticiones/validarPeticionResponse</outputActionMapping>
+        </operation>
+        <operation name="recibirPeticion" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/peticiones/">
+            <actionMapping>http://www.example.org/peticiones/recibirPeticion</actionMapping>
+            <outputActionMapping>http://www.example.org/peticiones/peticiones/recibirPeticionResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="SubidaFichero">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.subidafichero.SubidaFicheroMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.subidafichero.SubidaFicheroSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="ValidarFichero" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/SubidaFichero/">
+            <actionMapping>http://www.example.org/SubidaFichero/ValidarFichero</actionMapping>
+            <outputActionMapping>http://www.example.org/SubidaFichero/SubidaFichero/ValidarFicheroResponse</outputActionMapping>
+        </operation>
+        <operation name="PonerFicheroEnCola" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/SubidaFichero/">
+            <actionMapping>http://www.example.org/SubidaFichero/PonerFicheroEnCola</actionMapping>
+            <outputActionMapping>http://www.example.org/SubidaFichero/SubidaFichero/PonerFicheroEnColaResponse</outputActionMapping>
+        </operation>
+        <operation name="SubidaFichero" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/SubidaFichero/">
+            <actionMapping>http://www.example.org/SubidaFichero/SubidaFichero</actionMapping>
+            <outputActionMapping>http://www.example.org/SubidaFichero/SubidaFichero/SubidaFicheroResponse</outputActionMapping>
+        </operation>
+        <operation name="EnvioFichero" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/SubidaFichero/">
+            <actionMapping>http://www.example.org/SubidaFichero/EnvioFichero</actionMapping>
+            <outputActionMapping>http://www.example.org/SubidaFichero/SubidaFichero/EnvioFicheroResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

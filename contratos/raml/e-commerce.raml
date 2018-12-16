@@ -1,0 +1,126 @@
+#%RAML 1.0
+title: ecommerce
+mediaType: application/json
+baseUri: localhost:3002/ecommerce
+
+types:
+  Producto:
+    type: object
+    properties: 
+      Nombre: string
+      Cantidad: integer
+      PrecioU: integer
+  ProductoResponse:
+    type: object
+    properties: 
+      id: integer
+      Nombre: string
+      Cantidad: integer
+      PrecioU: integer
+  Factura:
+    type: object
+    properties: 
+      idProducto: number
+      idCliente: number
+      Cantidad: number
+#Available resources
+/stock:
+  get:
+    description: Get all the stock
+    responses:
+      200:
+        body:
+          type: ProductoResponse[]
+  post:
+    description: Crea un producto del stock
+    body:
+      application/json:
+        type: Producto
+    responses: # declare a response
+      200: # HTTP status code
+        body: # declare content of response
+          application/json: # media type
+            example: | # example how a response looks like
+              {
+                "cantidad": 5,
+                "añadido" : true
+              }
+      500:
+        description: "Error al añadir un producto"
+  /{id}:
+    uriParameters: 
+      id:
+        displayName: id
+        type: integer
+        description: "El id del pedido que se quiere consultar"
+        required: true
+        example: 24
+    get:
+      description: Get the quantity of one product
+      responses:
+        200:
+          body:
+            type: Producto
+    put:
+      body:
+        application/json:
+          type: Producto
+      responses: # declare a response
+        204: # HTTP status code
+        500:
+          description: "Error al modificar un producto"
+    delete:
+        responses: # declare a response
+          200: # HTTP status code
+            body: # declare content of response
+              application/json: # media type
+                example: | # example how a response looks like
+                  {
+                    "borrado" : true
+                  }
+          500:
+            description: "Error al borrar un producto"
+            
+/factura:
+  get:
+    description: Devuelve todas las facturas
+    responses:
+      200:
+        body:
+          type: Factura
+      500:
+        description: "Error al devolver las facturas"
+  post:
+    description: Crea una factura
+    body:
+      application/json:
+        type: Factura
+    responses: # declare a response
+      200: # HTTP status code
+        body: # declare content of response
+          application/json: # media type
+            example: | # example how a response looks like
+              {
+                "generado": true,
+                "panelesEncargados" : 30,
+                "cliente" : 2
+              }
+      500:
+        description: "Error al a�adir un producto"
+  /{id}:
+    uriParameters: 
+        id:
+          displayName: id
+          type: integer
+          description: "El id del pedido que se quiere consultar"
+          required: true
+          example: 24
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              example: | # example how a response looks like
+                {
+                  "eliminado": true
+                }

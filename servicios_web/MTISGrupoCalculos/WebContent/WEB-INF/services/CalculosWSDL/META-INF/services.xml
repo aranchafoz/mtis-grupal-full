@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="CalculosWSDL">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.example.www.calculoswsdl.CalculosWSDLMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.example.www.calculoswsdl.CalculosWSDLSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="calculoDefensas" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/CalculosWSDL/">
+            <actionMapping>http://www.example.org/CalculosWSDL/calculoDefensas</actionMapping>
+            <outputActionMapping>http://www.example.org/CalculosWSDL/CalculosWSDL/calculoDefensasResponse</outputActionMapping>
+        </operation>
+        <operation name="calculoMovilidad" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/CalculosWSDL/">
+            <actionMapping>http://www.example.org/CalculosWSDL/calculoMovilidad</actionMapping>
+            <outputActionMapping>http://www.example.org/CalculosWSDL/CalculosWSDL/calculoMovilidadResponse</outputActionMapping>
+        </operation>
+        <operation name="calculoRotacion" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.example.org/CalculosWSDL/">
+            <actionMapping>http://www.example.org/CalculosWSDL/calculoRotacion</actionMapping>
+            <outputActionMapping>http://www.example.org/CalculosWSDL/CalculosWSDL/calculoRotacionResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

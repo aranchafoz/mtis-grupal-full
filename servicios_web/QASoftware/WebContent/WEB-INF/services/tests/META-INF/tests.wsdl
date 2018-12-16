@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="tests" targetNamespace="http://www.example.org/tests/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/tests/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/tests/">
+      <xsd:element name="ejecutarTests">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idPeticion" type="xsd:int"/>
+
+          	<xsd:element name="descripcion" type="xsd:string"/>
+          	<xsd:element name="categoria" type="xsd:string"/>
+          	<xsd:element name="lenguaje" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ejecutarTestsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="idTest" type="xsd:int"/>
+
+          	<xsd:element name="completado" type="xsd:boolean"/>
+          	<xsd:element name="porcentajeCompletado" type="xsd:int"/>
+          	<xsd:element name="error" type="xsd:boolean"/>
+          	<xsd:element name="descripcionError" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ejecutarTestsRequest">
+    <wsdl:part name="parameters" element="tns:ejecutarTests">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ejecutarTestsResponse">
+    <wsdl:part name="parameters" element="tns:ejecutarTestsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="tests">
+    <wsdl:operation name="ejecutarTests">
+      <wsdl:input message="tns:ejecutarTestsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ejecutarTestsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="testsSOAP" type="tns:tests">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ejecutarTests">
+      <soap:operation soapAction="http://www.example.org/tests/ejecutarTests"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tests">
+    <wsdl:port name="testsSOAP" binding="tns:testsSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

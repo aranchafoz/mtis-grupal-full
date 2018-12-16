@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/SensoresWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SensoresWSDL" targetNamespace="http://www.example.org/SensoresWSDL/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/SensoresWSDL/">
+      <xsd:element name="getIntensidad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="hora" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getIntensidadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="intensidad" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTemperatura">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="hora" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTemperaturaResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="temperatura" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGranizo">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="hora" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGranizoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="probabilidad" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPosSolar">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="hora" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPosSolarResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="grados" type="xsd:int"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getIntensidadRequest">
+    <wsdl:part element="tns:getIntensidad" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getIntensidadResponse">
+    <wsdl:part element="tns:getIntensidadResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getTemperaturaRequest">
+  	<wsdl:part name="parameters" element="tns:getTemperatura"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTemperaturaResponse">
+  	<wsdl:part name="parameters" element="tns:getTemperaturaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGranizoRequest">
+  	<wsdl:part name="parameters" element="tns:getGranizo"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGranizoResponse">
+  	<wsdl:part name="parameters" element="tns:getGranizoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPosSolarRequest">
+  	<wsdl:part name="parameters" element="tns:getPosSolar"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPosSolarResponse">
+  	<wsdl:part name="parameters" element="tns:getPosSolarResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SensoresWSDL">
+    <wsdl:operation name="getIntensidad">
+      <wsdl:input message="tns:getIntensidadRequest"/>
+      <wsdl:output message="tns:getIntensidadResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTemperatura">
+    	<wsdl:input message="tns:getTemperaturaRequest"></wsdl:input>
+    	<wsdl:output message="tns:getTemperaturaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGranizo">
+    	<wsdl:input message="tns:getGranizoRequest"></wsdl:input>
+    	<wsdl:output message="tns:getGranizoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPosSolar">
+    	<wsdl:input message="tns:getPosSolarRequest"></wsdl:input>
+    	<wsdl:output message="tns:getPosSolarResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SensoresWSDLSOAP" type="tns:SensoresWSDL">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="getIntensidad">
+  		<soap:operation
+  			soapAction="http://www.example.org/SensoresWSDL/getIntensidad" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getTemperatura">
+  		<soap:operation
+  			soapAction="http://www.example.org/SensoresWSDL/getTemperatura" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getGranizo">
+  		<soap:operation
+  			soapAction="http://www.example.org/SensoresWSDL/getGranizo" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getPosSolar">
+  		<soap:operation
+  			soapAction="http://www.example.org/SensoresWSDL/getPosSolar" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SensoresWSDL">
+    <wsdl:port binding="tns:SensoresWSDLSOAP" name="SensoresWSDLSOAP">
+      <soap:address location="http://localhost:9080/MTISGrupoSensores/services/SensoresWSDL/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,502 @@
+<metadata__catalog__entry>
+  <version>5.2.0.0</version>
+  <types class="tree-map">
+    <entry>
+      <org.mule.common.metadata.DefaultMetaDataKey>
+        <id>QASoftwareRequest</id>
+        <displayName>QASoftwareRequest</displayName>
+        <category>DEFAULT</category>
+        <metaDataKeyPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+          </properties>
+        </metaDataKeyPropertiesManager>
+      </org.mule.common.metadata.DefaultMetaDataKey>
+      <org.mule.common.metadata.DefaultXmlMetaDataModel>
+        <dataType>XML</dataType>
+        <metaDataModelPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
+            <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <derivedStructure>false</derivedStructure>
+              <generatedStructure>false</generatedStructure>
+            </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+          </properties>
+        </metaDataModelPropertiesManager>
+        <fields>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:idPeticion</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName>
+                      <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                      <localPart>string</localPart>
+                      <prefix></prefix>
+                    </typeQName>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>idPeticion</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:descripcion</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>descripcion</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:departamento</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>departamento</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:categoria</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>categoria</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:lenguaje</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>STRING</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName reference="../../../../../../org.mule.common.metadata.DefaultMetaDataField/model/metaDataModelPropertiesManager/properties/org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/typeQName"/>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>lenguaje</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+        </fields>
+        <rootElement>
+          <namespaceURI>http://QASoftware</namespaceURI>
+          <localPart>QASoftwareRequest</localPart>
+          <prefix>ns0</prefix>
+        </rootElement>
+        <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
+          <schemas>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:plnk=&quot;http://docs.oasis-open.org/wsbpel/2.0/plnktype&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://QASoftware&quot; xmlns:vprop=&quot;http://docs.oasis-open.org/wsbpel/2.0/varprop&quot; xmlns:wsdl=&quot;http://www.example.org/peticiones/&quot; xmlns:wsdl1=&quot;http://www.example.org/tests/&quot; xmlns:wsdl2=&quot;http://www.example.org/informes/&quot; attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://QASoftware&quot;&gt;&#xd;
+&#xd;
+            &lt;element name=&quot;QASoftwareRequest&quot;&gt;&#xd;
+                &lt;complexType&gt;&#xd;
+                    &lt;sequence&gt;&#xd;
+                    	&lt;element name=&quot;idPeticion&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;descripcion&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;departamento&quot; type=&quot;string&quot;/&gt;&#xd;
+                    	&lt;element name=&quot;categoria&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;lenguaje&quot; type=&quot;string&quot;/&gt;&#xd;
+                    &lt;/sequence&gt;&#xd;
+                &lt;/complexType&gt;&#xd;
+            &lt;/element&gt;&#xd;
+&#xd;
+            &lt;element name=&quot;QASoftwareResponse&quot;&gt;&#xd;
+                &lt;complexType&gt;&#xd;
+                    &lt;sequence&gt;&#xd;
+                        &lt;element name=&quot;result&quot; type=&quot;boolean&quot;/&gt;&#xd;
+                    &lt;/sequence&gt;&#xd;
+                &lt;/complexType&gt;&#xd;
+            &lt;/element&gt;&#xd;
+        &lt;/schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/informes/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/informes/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;generarInforme&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idInforme&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prioridad&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;descripcionError&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;departamento&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;generarInformeResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idInforme&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;posicionCola&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/peticiones/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/peticiones/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;recibirPeticion&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;idPeticion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;descripcion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;lenguaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;recibirPeticionResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;validarPeticion&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;validarPeticionResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/tests/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/tests/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;ejecutarTests&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idPeticion&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;descripcion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;lenguaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;ejecutarTestsResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;idTest&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;completado&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;porcentajeCompletado&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;descripcionError&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+          </schemas>
+          <encoding>windows-1252</encoding>
+          <baseUri>http://localhost:8080/ode/deployment/bundles/QABPEL/QASoftwareArtifacts.wsdl</baseUri>
+        </schemas>
+        <namespaceManager>
+          <namespacePrefix>
+            <entry>
+              <string>http://QASoftware</string>
+              <string>ns0</string>
+            </entry>
+          </namespacePrefix>
+        </namespaceManager>
+      </org.mule.common.metadata.DefaultXmlMetaDataModel>
+    </entry>
+    <entry>
+      <org.mule.common.metadata.DefaultMetaDataKey>
+        <id>QASoftwareResponse</id>
+        <displayName>QASoftwareResponse</displayName>
+        <category>DEFAULT</category>
+        <metaDataKeyPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.key.property.dsql.DsqlFromMetaDataKeyProperty/>
+          </properties>
+        </metaDataKeyPropertiesManager>
+      </org.mule.common.metadata.DefaultMetaDataKey>
+      <org.mule.common.metadata.DefaultXmlMetaDataModel>
+        <dataType>XML</dataType>
+        <metaDataModelPropertiesManager>
+          <properties>
+            <org.mule.common.metadata.property.TextBasedExampleMetaDataModelProperty/>
+            <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty/>
+            <org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+              <metaDataKey class="org.mule.common.metadata.DefaultMetaDataKey" reference="../../../../../org.mule.common.metadata.DefaultMetaDataKey"/>
+              <derivedStructure>false</derivedStructure>
+              <generatedStructure>false</generatedStructure>
+            </org.mule.common.metadata.property.StructureIdentifierMetaDataModelProperty>
+          </properties>
+        </metaDataModelPropertiesManager>
+        <fields>
+          <org.mule.common.metadata.DefaultMetaDataField>
+            <name>ns0:result</name>
+            <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
+              <dataType>BOOLEAN</dataType>
+              <metaDataModelPropertiesManager>
+                <properties>
+                  <org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                    <typeQName>
+                      <namespaceURI>http://www.w3.org/2001/XMLSchema</namespaceURI>
+                      <localPart>boolean</localPart>
+                      <prefix></prefix>
+                    </typeQName>
+                  </org.mule.common.metadata.property.xml.SchemaTypeMetaDataProperty>
+                </properties>
+              </metaDataModelPropertiesManager>
+            </model>
+            <accessType>READ_WRITE</accessType>
+            <metaDataFieldPropertyManager>
+              <properties>
+                <org.mule.common.metadata.property.QNameMetaDataProperty>
+                  <name>
+                    <namespaceURI>http://QASoftware</namespaceURI>
+                    <localPart>result</localPart>
+                    <prefix>ns0</prefix>
+                  </name>
+                </org.mule.common.metadata.property.QNameMetaDataProperty>
+              </properties>
+            </metaDataFieldPropertyManager>
+          </org.mule.common.metadata.DefaultMetaDataField>
+        </fields>
+        <rootElement>
+          <namespaceURI>http://QASoftware</namespaceURI>
+          <localPart>QASoftwareResponse</localPart>
+          <prefix>ns0</prefix>
+        </rootElement>
+        <schemas class="org.mule.common.metadata.StringBasedSchemaProvider">
+          <schemas>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:plnk=&quot;http://docs.oasis-open.org/wsbpel/2.0/plnktype&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://QASoftware&quot; xmlns:vprop=&quot;http://docs.oasis-open.org/wsbpel/2.0/varprop&quot; xmlns:wsdl=&quot;http://www.example.org/peticiones/&quot; xmlns:wsdl1=&quot;http://www.example.org/tests/&quot; xmlns:wsdl2=&quot;http://www.example.org/informes/&quot; attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://QASoftware&quot;&gt;&#xd;
+&#xd;
+            &lt;element name=&quot;QASoftwareRequest&quot;&gt;&#xd;
+                &lt;complexType&gt;&#xd;
+                    &lt;sequence&gt;&#xd;
+                    	&lt;element name=&quot;idPeticion&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;descripcion&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;departamento&quot; type=&quot;string&quot;/&gt;&#xd;
+                    	&lt;element name=&quot;categoria&quot; type=&quot;string&quot;/&gt;&#xd;
+&#xd;
+                    	&lt;element name=&quot;lenguaje&quot; type=&quot;string&quot;/&gt;&#xd;
+                    &lt;/sequence&gt;&#xd;
+                &lt;/complexType&gt;&#xd;
+            &lt;/element&gt;&#xd;
+&#xd;
+            &lt;element name=&quot;QASoftwareResponse&quot;&gt;&#xd;
+                &lt;complexType&gt;&#xd;
+                    &lt;sequence&gt;&#xd;
+                        &lt;element name=&quot;result&quot; type=&quot;boolean&quot;/&gt;&#xd;
+                    &lt;/sequence&gt;&#xd;
+                &lt;/complexType&gt;&#xd;
+            &lt;/element&gt;&#xd;
+        &lt;/schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/informes/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/informes/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;generarInforme&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idInforme&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;prioridad&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;descripcionError&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;departamento&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;generarInformeResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idInforme&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;posicionCola&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/peticiones/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/peticiones/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;recibirPeticion&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;idPeticion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;descripcion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;lenguaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;recibirPeticionResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;validarPeticion&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;validarPeticionResponse&quot;&gt;&#xd;
+      	&lt;xsd:complexType&gt;&#xd;
+      		&lt;xsd:sequence&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;valida&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+&#xd;
+      			&lt;xsd:element name=&quot;comentarios&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+      		&lt;/xsd:sequence&gt;&#xd;
+      	&lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+            <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;xsd:schema xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://www.example.org/tests/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; targetNamespace=&quot;http://www.example.org/tests/&quot;&gt;&#xd;
+      &lt;xsd:element name=&quot;ejecutarTests&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+          	&lt;xsd:element name=&quot;idPeticion&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;descripcion&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;categoria&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;lenguaje&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+      &lt;xsd:element name=&quot;ejecutarTestsResponse&quot;&gt;&#xd;
+        &lt;xsd:complexType&gt;&#xd;
+          &lt;xsd:sequence&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;idTest&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+&#xd;
+          	&lt;xsd:element name=&quot;completado&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;porcentajeCompletado&quot; type=&quot;xsd:int&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;error&quot; type=&quot;xsd:boolean&quot;/&gt;&#xd;
+          	&lt;xsd:element name=&quot;descripcionError&quot; type=&quot;xsd:string&quot;/&gt;&#xd;
+          &lt;/xsd:sequence&gt;&#xd;
+        &lt;/xsd:complexType&gt;&#xd;
+      &lt;/xsd:element&gt;&#xd;
+    &lt;/xsd:schema&gt;</string>
+          </schemas>
+          <encoding reference="../../../../entry/org.mule.common.metadata.DefaultXmlMetaDataModel/schemas/encoding"/>
+          <baseUri>http://localhost:8080/ode/deployment/bundles/QABPEL/QASoftwareArtifacts.wsdl</baseUri>
+        </schemas>
+        <namespaceManager>
+          <namespacePrefix>
+            <entry>
+              <string>http://QASoftware</string>
+              <string>ns0</string>
+            </entry>
+          </namespacePrefix>
+        </namespaceManager>
+      </org.mule.common.metadata.DefaultXmlMetaDataModel>
+    </entry>
+  </types>
+  <connectorName>QASoftware_WebService</connectorName>
+</metadata__catalog__entry>
